@@ -14,5 +14,22 @@ return {
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
     { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find help" },
   },
-  opts = {},
+  config = function()
+    require("telescope").setup({
+      defaults = {
+        buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+      },
+      pickers = {
+        find_files = {
+          previewer = false,
+        },
+        live_grep = {
+          previewer = false,
+        },
+        grep_string = {
+          previewer = false,
+        },
+      },
+    })
+  end,
 }
