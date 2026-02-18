@@ -2,8 +2,8 @@
 
 A comprehensive Neovim configuration optimized for modern web development (React, Next.js, Node.js), mobile app development (React Native), backend services (Supabase, PostgreSQL, MySQL), and C++ development.
 
-![Dashboard](screenshot1.png)
-![Editor View](screenshot.png)
+![Dashboard](./screenshot1.png)
+![Editor View](./screenshot.png)
 
 ## Features
 
