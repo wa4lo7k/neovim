@@ -2,6 +2,14 @@
 
 A comprehensive Neovim configuration optimized for modern web development (React, Next.js, Node.js), mobile app development (React Native), backend services (Supabase, PostgreSQL, MySQL), and C++ development.
 
+## Screenshots
+
+![Dashboard](./screenshot1.png)
+*WA4L07K Dashboard with quick shortcuts and keybindings reference*
+
+![Editor View](./screenshot.png)
+*Editor with LSP, file tree, syntax highlighting, and statusline*
+
 ## Features
 
 - **LSP Support**: Full language server protocol support for TypeScript, JavaScript, HTML, CSS, Lua, C++, SQL, and GraphQL
