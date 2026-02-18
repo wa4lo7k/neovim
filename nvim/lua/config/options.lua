@@ -55,5 +55,15 @@ opt.completeopt = "menu,menuone,noselect"
 -- Mouse
 opt.mouse = "a"
 
--- Performance
-opt.lazyredraw = true
+-- Better display
+opt.pumheight = 10       -- popup menu height
+opt.showmode = false     -- don't show mode (lualine handles it)
+opt.showtabline = 2      -- always show tabline
+opt.conceallevel = 0     -- show `` in markdown files
+opt.fileencoding = "utf-8"
+opt.cmdheight = 1
+opt.breakindent = true   -- wrapped lines preserve indentation
+opt.linebreak = true     -- wrap at word boundaries
+opt.list = true          -- show invisible characters
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+opt.fillchars = { eob = " " } -- hide ~ at end of buffer
