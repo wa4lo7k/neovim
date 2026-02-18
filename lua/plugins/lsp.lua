@@ -43,7 +43,6 @@ return {
       { "folke/neodev.nvim", opts = {} },
     },
     config = function()
-      local lspconfig = require("lspconfig")
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
       local keymap = vim.keymap
 
@@ -98,7 +97,7 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
-      -- Configure each LSP server
+      -- Setup LSP servers using vim.lsp.config
       local servers = {
         eslint = {},
         html = {},
@@ -134,10 +133,29 @@ return {
         graphql = {},
       }
 
-      for server, config in pairs(servers) do
-        config.capabilities = capabilities
-        config.on_attach = on_attach
-        lspconfig[server].setup(config)
+      -- Use the new vim.lsp.config API if available, fallback to lspconfig
+      local has_new_api = vim.fn.has("nvim-0.11") == 1
+      
+      if has_new_api then
+        for server, config in pairs(servers) do
+          config.capabilities = capabilities
+          config.on_attach = on_attach
+          vim.lsp.config[server] = config
+          vim.api.nvim_create_autocmd("FileType", {
+            pattern = "*",
+            callback = function()
+              vim.lsp.enable(server)
+            end,
+          })
+        end
+      else
+        -- Fallback to lspconfig for older Neovim versions
+        local lspconfig = require("lspconfig")
+        for server, config in pairs(servers) do
+          config.capabilities = capabilities
+          config.on_attach = on_attach
+          lspconfig[server].setup(config)
+        end
       end
     end,
   },
