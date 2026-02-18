@@ -8,7 +8,11 @@ return {
     "windwp/nvim-ts-autotag",
   },
   config = function()
-    local configs = require("nvim-treesitter.configs")
+    local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+    if not status_ok then
+      return
+    end
+
     configs.setup({
       ensure_installed = {
         "javascript",
@@ -17,27 +21,24 @@ return {
         "json",
         "html",
         "css",
-        "scss",
         "lua",
         "vim",
         "vimdoc",
         "cpp",
         "c",
-        "sql",
-        "graphql",
-        "markdown",
-        "markdown_inline",
         "bash",
-        "yaml",
-        "toml",
       },
+      sync_install = false,
       auto_install = true,
+      ignore_install = {},
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
       },
       indent = { enable = true },
-      autotag = { enable = true },
+      autotag = { 
+        enable = true,
+      },
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -45,18 +46,6 @@ return {
           node_incremental = "<C-space>",
           scope_incremental = false,
           node_decremental = "<bs>",
-        },
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true,
-          keymaps = {
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
-            ["ic"] = "@class.inner",
-          },
         },
       },
     })
