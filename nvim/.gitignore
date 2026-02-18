@@ -1,0 +1,14 @@
+# Neovim
+*.swp
+*.swo
+*~
+
+# Lazy.nvim
+lazy-lock.json
+
+# LSP
+.luarc.json
+
+# OS
+.DS_Store
+Thumbs.db
