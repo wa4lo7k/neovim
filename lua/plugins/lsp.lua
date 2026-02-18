@@ -20,7 +20,6 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "ts_ls",           -- TypeScript/JavaScript
           "eslint",          -- ESLint
           "html",            -- HTML
           "cssls",           -- CSS
@@ -101,9 +100,6 @@ return {
 
       -- Configure each LSP server
       local servers = {
-        ts_ls = {
-          filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-        },
         eslint = {},
         html = {},
         cssls = {},

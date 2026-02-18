@@ -103,7 +103,6 @@ Close and reopen Neovim after initial plugin installation.
 ```
 
 Then install these tools from Mason:
-- `typescript-language-server` (ts_ls)
 - `eslint-lsp` (eslint)
 - `html-lsp` (html)
 - `css-lsp` (cssls)
@@ -157,8 +156,7 @@ Leader key: `Space`
 - `]d` - Next diagnostic
 
 ### React/React Native
-- `<leader>re` - Extract React component to new file (visual mode)
-- `<leader>rc` - Extract React component to current file (visual mode)
+- TypeScript/JavaScript support via typescript-tools.nvim (replaces deprecated ts_ls)
 
 ### Debugging
 - `<leader>db` - Toggle breakpoint
